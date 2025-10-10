@@ -1,5 +1,5 @@
 def main():
-    tutorial_201()
+    tutorial_202()
 
 def tutorial_201():
     #python file structures
@@ -22,7 +22,20 @@ def tutorial_201():
 
 def tutorial_202():
     #tutorial 2.02 - Pandas dataframes
-    print("starting")
+    import pandas as pd
+    
+    #get parent folder
+    from pathlib import Path
+    project_root = Path(__file__).parent.parent
+
+    #get needed files
+    paralympics_csv = project_root / 'data' / 'paralympics_raw.csv'
+    paralympics_xlsx = project_root / 'data' / 'paralympics_all_raw.xlsx'
+
+    #get the csv as a dataframe
+    csv_df = pd.read_csv(paralympics_csv)
+    xlsx_df_0 = pd.read_excel(paralympics_xlsx)
+    xlsx_df_1 = pd.read_excel(paralympics_xlsx, sheet_name=1)
 
 
 if __name__ == "__main__":
